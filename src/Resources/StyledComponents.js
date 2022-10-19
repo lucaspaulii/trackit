@@ -12,13 +12,14 @@ export const InputsContainer = styled.div`
   z-index: 300;
   height: 100vh;
   width: 100vw;
+  background-color: ${defaultBackground};
   top: 0;
   left: 0;
   font-family: "Lexend Deca", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 80px;
+  padding-top: 80px;
   form {
     display: flex;
     flex-direction: column;
@@ -62,6 +63,12 @@ export const InputsContainer = styled.div`
 `;
 
 export const WelcomeScreenContainer = styled.div`
+  position: fixed;
+  z-index: 300;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
   background-color: ${defaultHeaderColor};
   color: ${defaultBackground};
   height: 100vh;
@@ -91,7 +98,71 @@ export const WelcomeScreenContainer = styled.div`
     margin-bottom: 7px;
     text-decoration: none;
     color: ${defaultBackground};
-    border-left: solid 8px #8FC549;
+    border-left: solid 8px #8fc549;
     padding-left: 7px;
   }
+`;
+
+export const HeaderContainer = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: ${defaultHeaderColor};
+  z-index: 50;
+  height: 70px;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  img {
+    height: 38px;
+    width: auto;
+  }
+  div {
+    width: 55px;
+    height: 55px;
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+  }
+`;
+
+export const FooterContainer = styled.div`
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: ${defaultBackground};
+  z-index: 50;
+  height: 70px;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  p {
+    font-family: "Lexend Deca", sans-serif;
+    color: ${defaultThemeColor};
+    font-size: 18px;
+  }
+  button {
+    font-family: "Lexend Deca", sans-serif;
+    color: ${defaultBackground};
+    background-color: ${defaultThemeColor};
+    border: none;
+    border-radius: 50%;
+    width: 91px;
+    height: 91px;
+    margin-bottom: 40px;
+    font-size: 18px;
+  }
+`;
+
+export const HabitsContainer = styled.div`
+  background-color: ${defaultDetails};
+  color: ${defaultTextColor};
+  height: 100vh;
+  width: 100vw;
 `;
