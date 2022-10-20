@@ -5,6 +5,7 @@ import {
   defaultDetails,
   defaultHeaderColor,
   defaultTextColor,
+  secondaryBackground,
 } from "../Resources/DefaultColors";
 
 export const InputsContainer = styled.div`
@@ -169,8 +170,140 @@ export const FooterContainer = styled.div`
 `;
 
 export const HabitsContainer = styled.div`
-  background-color: ${defaultDetails};
+  font-family: "Lexend Deca", sans-serif;
+  padding-top: 100px;
+  background-color: ${secondaryBackground};
   color: ${defaultTextColor};
   height: 100vh;
   width: 100vw;
+  p {
+    padding: 0 20px;
+    font-size: 16px;
+  }
 `;
+export const CreateButton = styled.button`
+  font-family: "Lexend Deca", sans-serif;
+  font-size: 27px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 35px;
+  background-color: ${defaultThemeColor};
+  color: ${defaultBackground};
+  border: none;
+  border-radius: 5px;
+`;
+
+export const MyHabitsHeader = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  color: ${defaultHeaderColor};
+  font-size: 23px;
+  margin-bottom: 20px;
+`;
+
+export const CreatingHabitContainer = styled.div`
+  width: 90%;
+  margin: 0 auto;
+  background-color: ${defaultBackground};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+  form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  input {
+    width: 95%;
+    margin: 10px auto;
+    height: 45px;
+    border: 1px solid ${defaultDetails};
+    border-radius: 5px;
+    padding-left: 10px;
+    font-size: 20px;
+  }
+  input::placeholder{
+    color: ${defaultDetails};
+  }
+  input:disabled{
+    background-color: ${secondaryBackground}
+  }
+`;
+
+export const Day = styled.button`
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  border: 1px solid ${defaultDetails};
+  border-radius: 5px;
+  background-color: ${(props) => props.backgroundColor};
+  color: ${(props) => props.color};
+  margin-left: 5px;
+`;
+
+export const Days = styled.div`
+  display: flex;
+  margin: 0 auto 10px;
+`;
+
+export const CreatingHabitFooter = styled.div`
+  font-family: "Lexend Deca", sans-serif;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 10px auto;
+  justify-content: flex-end;
+  padding-right: 20px;
+  button {
+    font-family: "Lexend Deca", sans-serif;
+    font-size: 16px;
+    width: 85px;
+    height: 35px;
+    background-color: ${defaultThemeColor};
+    color: ${defaultBackground};
+    border: none;
+    border-radius: 5px;
+  }
+  p {
+    font-family: "Lexend Deca", sans-serif;
+    font-size: 16px;
+    color: ${defaultThemeColor};
+  }
+  p:disabled {
+    color: ${defaultDetails};
+  }
+  button:disabled {
+    background-color: ${defaultDetails};
+  }
+`;
+
+export const HabitContainer = styled.div`
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+  background-color: ${defaultBackground};
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  h3 {
+    font-family: "Lexend Deca", sans-serif;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  img {
+    width: 20px;
+    height: auto;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+`
