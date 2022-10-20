@@ -13,6 +13,7 @@ export default function Cadastro() {
   const [isRegistered, setIsRegistered] = useState(false);
   const [alertSeverity, setAlertSeverity] = useState(undefined);
   const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
   function handleSubmit(e) {
@@ -22,7 +23,7 @@ export default function Cadastro() {
       postForm(newObj);
       setIsLoading(true);
     } else {
-        setAlertSeverity("error");
+      setAlertSeverity("error");
     }
   }
 
@@ -39,7 +40,7 @@ export default function Cadastro() {
       setAlertSeverity("success");
       setIsLoading(false);
     });
-    promise.catch(() => {
+    promise.catch((e) => {
       setEmail(undefined);
       setPassword(undefined);
       setName(undefined);
@@ -47,6 +48,7 @@ export default function Cadastro() {
       setIsRegistered(true);
       setAlertSeverity("error");
       setIsLoading(false);
+      setErrorMessage(e.response.data.message);
     });
   }
 
@@ -60,7 +62,7 @@ export default function Cadastro() {
           placeholder="email"
           required
           onChange={(e) => setEmail(e.target.value)}
-          disabled={isRegistered ? true : false}
+          disabled={isRegistered || isLoading ? true : false}
         ></input>
         <input
           type="password"
@@ -68,7 +70,7 @@ export default function Cadastro() {
           placeholder="senha"
           required
           onChange={(e) => setPassword(e.target.value)}
-          disabled={isRegistered ? true : false}
+          disabled={isRegistered || isLoading ? true : false}
         ></input>
         <input
           type="text"
@@ -76,7 +78,7 @@ export default function Cadastro() {
           placeholder="nome"
           required
           onChange={(e) => setName(e.target.value)}
-          disabled={isRegistered ? true : false}
+          disabled={isRegistered || isLoading ? true : false}
         ></input>
         <input
           type="url"
@@ -84,16 +86,20 @@ export default function Cadastro() {
           placeholder="foto"
           required
           onChange={(e) => setImage(e.target.value)}
-          disabled={isRegistered ? true : false}
+          disabled={isRegistered || isLoading ? true : false}
         ></input>
-        <button type="submit" disabled={isRegistered ? true : false}>
-          {isLoading ? (<CircularProgress color="inherit"/>) : 'Cadastrar'}
+        <button
+          type="submit"
+          disabled={isLoading ? true : false}
+          style={{ display: isRegistered ? "none" : "block" }}
+        >
+          {isLoading ? <CircularProgress color="inherit" /> : "Cadastrar"}
         </button>
         {isRegistered ? (
           <Alert severity={alertSeverity}>
-            {alertSeverity === "success"
-              ? "Cadastro feito com sucesso!"
-              : "Algo de errado aconteceu"}
+            {alertSeverity === "error"
+              ? errorMessage
+              : "Cadastro feito com sucesso!"}
           </Alert>
         ) : (
           ""
@@ -110,7 +116,7 @@ export default function Cadastro() {
         {alertSeverity === "error" && (
           <button
             onClick={() => {
-                window.location.reload(false);
+              window.location.reload(false);
             }}
           >
             Tente novamente!

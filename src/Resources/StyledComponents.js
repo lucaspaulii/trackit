@@ -49,7 +49,7 @@ export const InputsContainer = styled.div`
   }
   button {
     margin-top: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     width: 300px;
     height: 45px;
     border: none;
@@ -60,12 +60,13 @@ export const InputsContainer = styled.div`
     font-size: 18px;
   }
   button:disabled {
-    background-color: ${defaultDetails};
+    background-color: ${defaultHeaderColor};
   }
   p {
     color: ${defaultThemeColor};
     text-decoration: underline;
     text-decoration-color: ${defaultThemeColor};
+    margin-top: 10px;
   }
 `;
 
@@ -105,7 +106,7 @@ export const WelcomeScreenContainer = styled.div`
     margin-bottom: 7px;
     text-decoration: none;
     color: ${defaultBackground};
-    border-left: solid 8px #8fc549;
+    border-left: solid 8px ${defaultBackground};
     padding-left: 7px;
   }
 `;
