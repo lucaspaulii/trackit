@@ -1,6 +1,7 @@
-import { LinearProgress } from "@mui/material";
+import { Alert, LinearProgress } from "@mui/material";
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import CreatingHabit from "../Components/CreatingHabit";
 import Habit from "../Components/Habit";
 import { AuthContext } from "../Providers/auth";
@@ -16,9 +17,13 @@ export default function Habitos() {
   const [isCreating, setIsCreating] = useState(false);
   const [update, setUpdate] = useState(false);
   const { userInfo } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+
 
   useEffect(() => {
     setIsLoading(true);
+    if (userInfo) {
     const config = {
       headers: { Authorization: `Bearer ${userInfo.token}` },
     };
@@ -34,7 +39,20 @@ export default function Habitos() {
     promise.catch((error) => {
       console.log(error);
     });
+  }
   }, [update]);
+
+
+  useEffect(() => {
+    if (userInfo === undefined) {
+      setTimeout(() => {
+        alert('você foi deslogado e retornará para a pagina inicial')
+        navigate("/")
+      }, 1500)  
+    }
+  }, [userInfo])
+  
+
   return (
     <HabitsContainer>
       <>

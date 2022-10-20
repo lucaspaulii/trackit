@@ -4,3 +4,4 @@ export const defaultDetails = "#DBDBDB";
 export const defaultHeaderColor = "#126BA5";
 export const defaultTextColor = "#666666";
 export const secondaryBackground = "#F2F2F2";
+export const defaultSuccess = "#8FC549"

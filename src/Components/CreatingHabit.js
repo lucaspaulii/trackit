@@ -53,7 +53,7 @@ export default function CreatingHabit({ setIsCreating, setUpdate, update }) {
         setIsCreated(false);
         setIsCreating(false);
         setUpdate(!update);
-      }, 2000);
+      }, 1000);
     });
     promise.catch(() => {
       setIsLoading(false);
@@ -63,7 +63,7 @@ export default function CreatingHabit({ setIsCreating, setUpdate, update }) {
       setTimeout(() => {
         setIsError(false);
         setIsCreating(false);
-      }, 2000);
+      }, 1000);
     });
   }
 

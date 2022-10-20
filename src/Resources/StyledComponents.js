@@ -229,11 +229,11 @@ export const CreatingHabitContainer = styled.div`
     padding-left: 10px;
     font-size: 20px;
   }
-  input::placeholder{
+  input::placeholder {
     color: ${defaultDetails};
   }
-  input:disabled{
-    background-color: ${secondaryBackground}
+  input:disabled {
+    background-color: ${secondaryBackground};
   }
 `;
 
@@ -306,4 +306,65 @@ export const HabitContainer = styled.div`
     top: 10px;
     right: 10px;
   }
-`
+`;
+
+export const TodayHeader = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0 20px;
+  margin-bottom: 25px;
+  h2 {
+    color: ${defaultHeaderColor};
+    font-size: 23px;
+    margin-bottom: 5px;
+  }
+  h3 {
+    color: ${(props) => props.color};
+  }
+`;
+
+export const TodayHabits = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 0 auto;
+`;
+
+export const TodayHabit = styled.div`
+  width: 100%;
+  height: 94px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  background-color: ${defaultBackground};
+  position: relative;
+  padding-left: 13px;
+  padding-top: 13px;
+  h3 {
+    font-size: 20px;
+    color: ${defaultTextColor};
+    margin-bottom: 7px;
+  }
+  h4 {
+    font-size: 13px;
+  }
+`;
+export const CheckButton = styled.button`
+  width: 69px;
+  height: 69px;
+  background-color: ${(props) => props.backgroundColor};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 5px;
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  img {
+    width: 35px;
+    height: auto;
+  }
+`;
