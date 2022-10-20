@@ -17,7 +17,7 @@ export default function CreatingHabit({ setIsCreating, setUpdate, update }) {
   const [isCreated, setIsCreated] = useState(false);
   const [isError, setIsError] = useState(false);
   const { userInfo } = useContext(AuthContext);
-  const daysArr = [1, 2, 3, 4, 5, 6, 7];
+  const daysArr = [0, 1, 2, 3, 4, 5, 6];
   const daysLetterArr = ["D", "S", "T", "Q", "Q", "S", "S"];
 
   function handleDayClick(day) {
@@ -38,6 +38,17 @@ export default function CreatingHabit({ setIsCreating, setUpdate, update }) {
   }
 
   function createHabit(habitObj) {
+    if (selectedDays.length === 0) {
+      setIsLoading(false);
+      setIsError(true);
+      setHabitName("");
+      setSelectedDays([]);
+      setTimeout(() => {
+        setIsError(false);
+        setIsCreating(false);
+      }, 1000);
+      return
+    }
     const URL =
       "https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits";
     const config = {
@@ -91,7 +102,7 @@ export default function CreatingHabit({ setIsCreating, setUpdate, update }) {
                 onClick={() => handleDayClick(d)}
                 disabled={isLoading || isCreated || isError ? true : false}
               >
-                {daysLetterArr[d - 1]}
+                {daysLetterArr[d]}
               </Day>
             );
           })}

@@ -171,11 +171,18 @@ export const FooterContainer = styled.div`
 
 export const HabitsContainer = styled.div`
   font-family: "Lexend Deca", sans-serif;
-  padding-top: 100px;
+  padding-top: 50px;
   background-color: ${secondaryBackground};
   color: ${defaultTextColor};
-  height: 100vh;
+  height: 85vh;
   width: 100vw;
+  overflow-y: scroll;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding-bottom: 50px;
+  ::-webkit-scrollbar {
+  display: none;
+  }
   p {
     padding: 0 20px;
     font-size: 16px;
@@ -266,6 +273,7 @@ export const CreatingHabitFooter = styled.div`
     font-size: 16px;
     width: 85px;
     height: 35px;
+    margin-left: 10px;
     background-color: ${defaultThemeColor};
     color: ${defaultBackground};
     border: none;
@@ -336,6 +344,7 @@ export const TodayHabits = styled.div`
 export const TodayHabit = styled.div`
   width: 100%;
   height: 94px;
+  flex-shrink: 0;
   border-radius: 5px;
   margin-bottom: 15px;
   background-color: ${defaultBackground};
@@ -349,6 +358,9 @@ export const TodayHabit = styled.div`
   }
   h4 {
     font-size: 13px;
+  }
+  span {
+    color: ${(props) => props.color}
   }
 `;
 export const CheckButton = styled.button`

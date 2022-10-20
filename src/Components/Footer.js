@@ -3,8 +3,11 @@ import { Link } from "react-router-dom";
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { defaultBackground } from "../Resources/DefaultColors";
+import { useContext } from "react";
+import { TodayContext } from "../Providers/todaysprogress";
 
 export default function Footer() {
+  const { todaysProgress } = useContext(TodayContext);
   return (
     <FooterContainer>
       <Link to={"/habitos"} style={{ textDecoration: "none" }}>
@@ -13,7 +16,7 @@ export default function Footer() {
       <Link to={"/hoje"} style={{ textDecoration: "none" }}>
         <button>
           <CircularProgressbar
-            value="50"
+            value={todaysProgress}
             text="Hoje"
             styles={buildStyles({
               pathColor: `${defaultBackground}`,

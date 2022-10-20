@@ -7,7 +7,7 @@ import trash from "../Resources/trash-10-32.png";
 import loading from "../Resources/cupertino_activity_indicator_selective.gif"
 
 export default function Habit({ id, name, days, update, setUpdate }) {
-  const daysArr = [1, 2, 3, 4, 5, 6, 7];
+  const daysArr = [0, 1, 2, 3, 4, 5, 6];
   const daysLetterArr = ["D", "S", "T", "Q", "Q", "S", "S"];
   const [isLoading, setIsLoading] = useState(false);
   const { userInfo } = useContext(AuthContext);
@@ -43,7 +43,7 @@ export default function Habit({ id, name, days, update, setUpdate }) {
                 days.includes(d) ? defaultDetails : "transparent"
               }
             >
-              {daysLetterArr[d - 1]}
+              {daysLetterArr[d]}
             </Day>
           );
         })}
