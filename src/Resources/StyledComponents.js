@@ -43,6 +43,10 @@ export const InputsContainer = styled.div`
   input::placeholder {
     color: ${defaultDetails};
   }
+  input:disabled {
+    background-color: ${defaultDetails};
+    color: ${defaultBackground};
+  }
   button {
     margin-top: 10px;
     margin-bottom: 20px;
@@ -54,6 +58,9 @@ export const InputsContainer = styled.div`
     background-color: ${defaultThemeColor};
     font-family: "Lexend Deca", sans-serif;
     font-size: 18px;
+  }
+  button:disabled {
+    background-color: ${defaultDetails};
   }
   p {
     color: ${defaultThemeColor};

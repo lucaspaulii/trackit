@@ -9,8 +9,11 @@ import Hoje from "./Pages/Hoje";
 import Historico from "./Pages/Historico";
 import Footer from "./Components/Footer";
 import WelcomeScreen from "./Pages/WelcomeScreen";
+import React from "react";
+import { AuthContext } from "./Providers/auth";
 
 function App() {
+  const {userInfo, setUserInfo} = React.useContext(AuthContext)
   return (
     <>
       <GlobalStyle />
