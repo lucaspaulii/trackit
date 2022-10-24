@@ -13,7 +13,9 @@ export default function Habit({ id, name, days, update, setUpdate }) {
   const { userInfo } = useContext(AuthContext);
 
   function deleteHabit() {
-    setIsLoading(true);
+    const confirmation = window.confirm('você realmente deseja apagar esse hábito?');
+    if (confirmation) {
+      setIsLoading(true);
     const URL =
       `https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/${id}`;
     const config = {
@@ -27,6 +29,7 @@ export default function Habit({ id, name, days, update, setUpdate }) {
     promise.catch(() => {
         setIsLoading(false);
     })
+    } 
   }
 
   return (

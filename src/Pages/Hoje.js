@@ -111,9 +111,9 @@ export default function Hoje() {
           {weekdays[dayjs().day()]}, {dayjs().date()}/{dayjs().month()}
         </h2>
         <h3>
-          {todaysProgress > 0
+          {isLoading ? '' : (todaysProgress > 0
             ? `${todaysProgress}% dos hábitos concluídos`
-            : "Nenhum hábito concluído ainda"}
+            : "Nenhum hábito concluído ainda")}
         </h3>
       </TodayHeader>
       {isLoading ? <LinearProgress /> : ""}
@@ -126,10 +126,24 @@ export default function Hoje() {
             >
               <h3>{habit.name}</h3>
               <h4>
-                Sequencia atual: <span>{habit.currentSequence} {(habit.currentSequence == 1) ? "dia" : "dias"}</span>
+                Sequencia atual:{" "}
+                <span>
+                  {habit.currentSequence}{" "}
+                  {habit.currentSequence === 1 ? "dia" : "dias"}
+                </span>
               </h4>
               <h4>
-                Seu recorde: <span>{habit.highestSequence} {(habit.highestSequence == 1) ? "dia" : "dias"}</span>
+                Seu recorde:{" "}
+                {habit.highestSequence === habit.currentSequence ? (
+                  <span>
+                    {habit.highestSequence}{" "}
+                    {habit.highestSequence === 1 ? "dia" : "dias"}
+                  </span>
+                ) : habit.highestSequence(habit.highestSequence === 1) ? (
+                  "dia"
+                ) : (
+                  "dias"
+                )}
               </h4>
               <CheckButton
                 onClick={() => handleCompleting(habit.id, habit.done)}
